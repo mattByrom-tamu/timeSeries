@@ -51,4 +51,24 @@ tsplot(unemTX$unemployment, type = "o", main = "unemTX")
 tsplot(benCA$unemBen_thousands, type = "o", main = "benCA")
 tsplot(benTX$unemBen_thousands, type = "o", main = "benTX")
 
+# correlation plots?
+# ca
+panel.cor <- function(x, y, ...){
+  usr <- par("usr"); on.exit(par(usr))
+  par(usr = c(0, 1, 0, 1))
+  r <- round(cor(x,y), 2)
+  text(0.5, 0.5, r, cex = 1.75)
+}
+
+pairs(cbind(Seperations = j2jCA$MSep, taxMillions = taxCA$taxMillions, unemployment= unemCA$unemployment, unemBen_thousands = benCA$unemBen_thousands), col="blue", lower.panel = panel.cor)
+
+# tx
+pairs(cbind(Seperations = j2jTX$MSep, taxMillions = taxTX$taxMillions, unemployment= unemTX$unemployment, unemBen_thousands = benTX$unemBen_thousands), col="blue", lower.panel = panel.cor)
+
+# lets fix some of this variance...
+
+# ca
+
+# tx
+
 
